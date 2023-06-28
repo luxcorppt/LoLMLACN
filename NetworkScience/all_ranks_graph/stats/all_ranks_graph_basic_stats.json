@@ -1,0 +1,1 @@
+{"n_nodes": 44587, "n_edges": 779615, "avg_clust_coefficient": [0.33818439117279253, 0.18550680874146552], "pseudo_diameter": 10.0, "avg_path_length": 3.6572885948336857, "transitivity": [0.16742175470189516, 0.002689285956397936], "n_triangles": 3046462, "n_triples": 54588999}
