@@ -2,7 +2,16 @@
 
 -------------------
 
-## Project File Structure
-- [Data](Data/Readme.md)
-- [Network Science](NetworkScience/Readme.md)
-- [Machine Learning](MachineLearning/Readme.md)
+## [Data](Data/Readme.md)
+Explain
+
+-------------------
+## [Network Science](NetworkScience/Readme.md)
+
+Explain
+
+-------------------
+## [Machine Learning](MachineLearning/Readme.md)
+Explain
+
+-------------------
