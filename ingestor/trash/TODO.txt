@@ -1,0 +1,10 @@
+# explanation
+# # is a comment
+# $ is for doing later
+# % is needed in Rust, not in DB
+#######
+MatchDTO - done
+SummonerDTO - trivial
+$championMasteryDto - trivial
+LeagueEntryDTO - trivial
+

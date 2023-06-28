@@ -1,0 +1,17 @@
+[package]
+name = "grapher"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+opensearch = "2.1.0"
+tokio = { version = "1.28.2", features = ["full", "tracing"]}
+tracing = "0.1.37"
+tracing-subscriber = "0.3.17"
+tracing-futures = "0.2.5"
+serde = "1.0.163"
+serde_json = "1.0.96"
+anyhow = "1.0.71"
+csv = "1.2.2"

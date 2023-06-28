@@ -1,0 +1,15 @@
+OVERALL
+20/sec
+100/2 min
+SUMMONERV4
+1600/min
+CHAMPIONMASTERY
+depois
+LEAGUEV4
+p/ get X league
+30 / 10 sec
+500 / 10 min
+p/ by summoner
+100 / min
+MATCHV5
+2000 / 10 sec
