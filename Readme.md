@@ -6,16 +6,16 @@
 
 -------------------
 
-## [Data](Data/Readme.md) - Report [Section III](report.pdf#SectionIII)
+## [Data](Data/Readme.md) - Section III
 Explain
 
 -------------------
-## [Network Science](NetworkScience/Readme.md) - Report [Section IV](report.pdf#SectionIV)
+## [Network Science](NetworkScience/Readme.md) - Section IV
 
 Explain
 
 -------------------
-## [Machine Learning](MachineLearning/Readme.md) - Report [Section V](report.pdf#SectionV)
+## [Machine Learning](MachineLearning/Readme.md) - Section V
 Explain
 
 -------------------
