@@ -7,29 +7,32 @@
 -------------------
 
 ## [Data](Data/Readme.md) - Section III
-Depois de requesitar-mos uma chave de desenvolvedor há Riot, construimos um sistema de query-and-store aos dados que precisavamos para o trabalho.
-Esse sistema é escrito em Rust e guarda os dados de forma que seja possivél este serem usados pela OpenSearch engine, que é bastante usada a nível industrial.
-Dos dados obtidos, houve 2 passos de preprocessamento distintios: (1) construção de uma network para ser analísada; (2) criação de estrutura tabular que irá ser
-algo de EAD e de algoritmos de Machine Learning.
+After requesting a developer key at Riot, we built a query-and-store system for the data we needed for the assignment.
 
-Usamos software "state-of-the-art" para a análise e todos o código em teoria foi construido para que o escalar da quantidade de dados não levante muitos problemas.
-Para além dos tradicionais packages de analise de dados e machine learning usamos o RAPIDS suite para GPU, especialmente cugraph, cufilter e cudf, packages para
-large-scale network análises (networkit, graph-tool) e software para visualização de grande volume de dados como o Holoviews, Datashader e Bokeh, bem como outros packages associados.
+We used Rust to make the system that takes data from RIOT and stores it in a way that can be posteriorly used by the OpenSearch engine, commonly used at an industrial level.
 
-Quanto a hardware, com autorização, usamos parte da infrastrutura do datacenter da faculdade. Hardware este que muito dele foi preparado por nós.
+From the data obtained, there were two distinct preprocessing steps:
+(1) construction of a network to be analyzed;
+(2) creation of a tabular structure that will be something from EAD and Machine Learning algorithms.
+
+We use "state-of-the-art" software for the analysis, and all the code, in theory, was built so that scaling the amount of data does not raise too many problems.
+In addition to the traditional data analysis and machine learning packages, we use the RAPIDS suite for the GPU, especially Cugraph, Cufilter, and Cudf packages for large-scale network analysis (Networkit, Graph-tool) and large-scale data visualization software such as Holoviews, Datashader, and Bokeh, as well as other associated packages.
+
+As for hardware, we use part of the college's data center infrastructure. The infrastructure was built by us under the supervision of DCC.
 
 -------------------
 ## [Network Science](NetworkScience/Readme.md) - Section IV
-Na análise da network fizemos testes para perceber a topologia da network bem como perceber o mecanismo que a gera. Fizemos testes quanto a processos dinamicos como
-o modelo Bianconi-Barabási e testamos modelos de resiliência e difusão de informação na network com parelelos a probelmas reais e.g. difusão de tentativas de scam.
-Para visualizar a network usamos técnicas de rasterização com software como Holoviews e Datashader.
+In the network analysis, we performed various tests not only to understand the topology of the network but also to understand the mechanism that generates it.
+
+We tested dynamic processes such as the Bianconi-Barabási model and models of resilience and information diffusion in the network with parallels to real problems, for example, dissemination of scam attempts.
+To visualize the network, we use rasterization techniques with software such as Holoviews and Datashader.
 
 -------------------
 ## [Machine Learning](MachineLearning/Readme.md) - Section V
 
-A aplicação de ML a dados tabulares e a EAD aos mesmos tem os seus resultados dispostos em uma dashboard criada usando pyplot.
-O principal objetivo dos algortimos de ML foi tentar perceber o quão bem se consegui distinguir os ranks dos players com base nos dados obtidos.
-Para além disso, fizemos a comparação entre tipo tempo gasto e resultado das métricas entre os algoritmos a correr em CPU contra GPU (aqui descobrimos um bug no RAPIDS :] ).
+Applying ML to tabular data and EAD to them has its results arranged in a dashboard created using Pyplot.
+The main objective of the ML algorithms was to try to understand how well I could distinguish the ranks of the players based on the data obtained.
+Furthermore, we compared the type of time spent and the result of the metrics between the algorithms running on CPU versus GPU. We also discovered a bug in RAPIDS.
 
 -------------------
 
