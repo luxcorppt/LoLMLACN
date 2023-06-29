@@ -1,7 +1,7 @@
 # Network Science
 
 -------------------
-- [Network Science Report](ns_report.pdf) 
+- [Network Science Report](report/project.pdf) 
 
 ## [Graph](../Data/grapher) - BDCC Report Section III
 Explain
