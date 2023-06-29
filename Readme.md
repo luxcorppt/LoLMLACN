@@ -30,7 +30,7 @@ To visualize the network, we use rasterization techniques with software such as 
 -------------------
 ## [Machine Learning](MachineLearning/Readme.md) - Section V
 
-Applying ML to tabular data and EAD to them has its results arranged in a dashboard created using Pyplot.
+Applying ML to tabular data and EDA to them has its results arranged in a dashboard created using Pyplot.
 The main objective of the ML algorithms was to try to understand how well I could distinguish the ranks of the players based on the data obtained.
 Furthermore, we compared the type of time spent and the result of the metrics between the algorithms running on CPU versus GPU. We also discovered a bug in RAPIDS.
 

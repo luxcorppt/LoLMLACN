@@ -640,10 +640,10 @@ contentMatchs = html.Div([
 ],id="page-content")
 
 
-corrEDA = html.Img(src=Image.open("corrEDA.png"),style={"width":"80%",})
-pairsEDA = html.Img(src=Image.open("pairsEDA.png"),style={"width":"80%"})
-plotsEDA = html.Img(src=Image.open("plotsEDA.png"),style={"width":"80%"})
-tierEDA = html.Img(src=Image.open("tierEDA.png"),style={"width":"80%"})
+corrEDA = html.Img(src=Image.open(os.path.join("imagesEDA","corrEDA.png")),style={"width":"80%",})
+pairsEDA = html.Img(src=Image.open(os.path.join("imagesEDA","pairsEDA.png")),style={"width":"80%"})
+plotsEDA = html.Img(src=Image.open(os.path.join("imagesEDA","plotsEDA.png")),style={"width":"80%"})
+tierEDA = html.Img(src=Image.open(os.path.join("imagesEDA","tierEDA.png")),style={"width":"80%"})
 
 contentEDA = html.Div([corrEDA,
     html.Hr(),
