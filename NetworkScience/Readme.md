@@ -1,9 +1,23 @@
 # Network Science
 
 -------------------
-- [Network Science Report](report/project.pdf) 
 
-## [Graph](../Data/grapher) - BDCC Report Section III
-Explain
+## Dynamic Mechanisms forming Networks of MOBA Matches
+Understanding Overlaps, Topology, Resilienceand Diffusion in a Gaming Community
+
+- [all_ranks_graph](all_ranks_graph): raw data used.
+- [consensation_algorithm_explanation](consensation_algorithm_explanation): more detailed explanation of algorithm 1 presented in the report.
+- [network_analysis](network_analysis): files regarding visualization and analysis of the network.
+- [network_construction](network_construction)/[grapher](../Data/grapher): contruction of the initial network.
+- [network_construction](network_construction)/transform_network: condensation of the network according to cliques (creates NoM).
+- [Network Science Report](report/project.pdf): the report.
+
 
 -------------------
+
+Some paths might have to be changed to ensure everything runs correctly.
+
+-------------------
+## By
+- João Afecto 201904774
+- Pedro Vieira 201905272
