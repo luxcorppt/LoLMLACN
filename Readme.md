@@ -12,13 +12,13 @@ After requesting a developer key at Riot, we built a query-and-store system for 
 We used Rust to make the system that takes data from RIOT and stores it in a way that can be posteriorly used by the OpenSearch engine, commonly used at an industrial level.
 
 From the data obtained, there were two distinct preprocessing steps:
-(1) construction of a network to be analyzed;
-(2) creation of a tabular structure that will be something from EAD and Machine Learning algorithms.
+- construction of a network to be analyzed;
+- creation of a tabular structure that will be something from EAD and Machine Learning algorithms.
 
 We use "state-of-the-art" software for the analysis, and all the code, in theory, was built so that scaling the amount of data does not raise too many problems.
 In addition to the traditional data analysis and machine learning packages, we use the RAPIDS suite for the GPU, especially Cugraph, Cufilter, and Cudf packages for large-scale network analysis (Networkit, Graph-tool) and large-scale data visualization software such as Holoviews, Datashader, and Bokeh, as well as other associated packages.
 
-As for hardware, we use part of the college's data center infrastructure. The infrastructure was built by us under the supervision of DCC.
+As for hardware, we use part of the college's data center infrastructure. The infrastructure was built by us under the supervision of the Department of Computer Science, Faculty of Sciences of the University of Porto.
 
 -------------------
 ## [Network Science](NetworkScience/Readme.md) - Section IV
