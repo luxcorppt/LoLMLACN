@@ -31,10 +31,6 @@ use riven::models::league_v4::LeagueEntry;
 
 const N_MATCHES: i32 = 10;
 
-const API_KEY: &'static str = "RGAPI-539d3dbc-4d32-43ac-8549-fda48092f14d";
-
-const API_KEY_BDCC: &'static str = "RGAPI-d52eb947-b78b-4354-9423-77bb12a31130";
-
 const ANDRE_UUID: &'static str = "blm3e9N5UTJwmVDQHJ6v47lSeszmCkQwcSoB-9bTBMLaIyttRf_GEyWBJ8bWzF0givq74y9abvjRfg";
 const TIAGO_UUID: &'static str = "XBmQ-UPO-v0tAQ49iAWGC99XC-MwYCWdCHqotNatfDWYb0rRZ8IcSz1hQzlZTAicl844rO6pyZwRBw";
 
@@ -69,16 +65,16 @@ impl From<Vec<LeagueEntry>> for TypesItems {
 static RIOT_API: OnceLock<RiotApi> = OnceLock::new();
 static OPENSEARCH_CLIENT: OnceLock<OpenSearch> = OnceLock::new();
 
-fn build_opensearch() {
-    let url = Url::parse("https://khabide.alunos.dcc.fc.up.pt:9200").unwrap();
+fn build_opensearch(url: &str, database_creds_user: String, database_creds_pass: String) {
+    let url = Url::parse(url).unwrap();
     let conn_pool = SingleNodeConnectionPool::new(url);
     let transport = TransportBuilder::new(conn_pool)
         .cert_validation(CertificateValidation::None)
         .disable_proxy()
         .auth(
             Credentials::Basic(
-                String::from("ingestor"),
-                String::from("!@#qweASDzxc456RTY")
+                database_creds_user,
+                database_creds_pass
             )
         )
         .build().unwrap();
@@ -90,9 +86,17 @@ fn build_opensearch() {
 async fn main() {
     let tm = TaskManager::new(Duration::from_secs(10));
     console_subscriber::init();
-    build_opensearch();
 
-    let api_config = RiotApiConfig::with_key(API_KEY_BDCC).preconfig_throughput();
+    dotenv::dotenv().ok();
+
+    let host = std::env::var("HOST").expect("Host not found");
+    let api_key_bdcc = std::env::var("API_KEY_BDCC").expect("API KEY BDCC not found");
+    let database_creds_user = std::env::var("DATABASE_CREDS_USER").expect("DATABASE_CREDS_USER not found");
+    let database_creds_pass = std::env::var("DATABASE_CREDS_PASSWORD").expect("DATABASE_CREDS_PASSWORD not found");
+
+    build_opensearch(host.as_str(), database_creds_user, database_creds_pass);
+
+    let api_config = RiotApiConfig::with_key(api_key_bdcc).preconfig_throughput();
 
     let riot_api = RiotApi::new(api_config);
 

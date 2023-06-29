@@ -19,16 +19,16 @@ static OPENSEARCH_CLIENT: OnceLock<OpenSearch> = OnceLock::new();
 const TARGET_MATCH_COUNT: i32 = 50_000;
 const QUERY_BATCH_SIZE: i64 = 1000;
 
-fn build_opensearch() {
-    let url = Url::parse("https://khabide.alunos.dcc.fc.up.pt:9200").unwrap();
+fn build_opensearch(url: &str, database_creds_user: String, database_creds_pass: String) {
+    let url = Url::parse(url).unwrap();
     let conn_pool = SingleNodeConnectionPool::new(url);
     let transport = TransportBuilder::new(conn_pool)
         .cert_validation(CertificateValidation::None)
         .disable_proxy()
         .auth(
             Credentials::Basic(
-                String::from("ingestor"),
-                String::from("!@#qweASDzxc456RTY")
+                database_creds_user,
+                database_creds_pass
             )
         )
         .build().unwrap();
@@ -39,8 +39,13 @@ fn build_opensearch() {
 #[tokio::main(flavor = "multi_thread")]
 async fn main() -> Result<(), anyhow::Error> {
     tracing_subscriber::fmt::init();
+    dotenv::dotenv().ok();
 
-    build_opensearch();
+    let host = std::env::var("HOST").expect("Host not found");
+    let database_creds_user = std::env::var("DATABASE_CREDS_USER").expect("DATABASE_CREDS_USER not found");
+    let database_creds_pass = std::env::var("DATABASE_CREDS_PASSWORD").expect("DATABASE_CREDS_PASSWORD not found");
+
+    build_opensearch(host.as_str(), database_creds_user, database_creds_pass);
 
     let client = OPENSEARCH_CLIENT.get().unwrap();
     let initial_response = client

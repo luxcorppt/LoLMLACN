@@ -4,7 +4,6 @@ mod database;
 mod traits;
 
 use std::future::Future;
-use std::string::ToString;
 use std::sync::OnceLock;
 use std::time::Duration;
 use anyhow::Error;
@@ -22,27 +21,22 @@ use tokio_task_manager::{Task, TaskManager};
 use tracing::{debug, error, info, instrument};
 use crate::processors::TypesItems;
 
-const DATABASE_CREDS_USER: &'static str = "ingestor";
-const DATABASE_CREDS_PASSWORD: &'static str = "!@#qweASDzxc456RTY";
-
-const API_KEY_BDCC: &'static str = "RGAPI-d52eb947-b78b-4354-9423-77bb12a31130";
-
 static RIOT_API: OnceLock<RiotApi> = OnceLock::new();
 static OPEN_SEARCH_CLIENT: OnceLock<OpenSearch> = OnceLock::new();
 
 const QUERY_BATCH_SIZE: i64 = 100;
 const WANTED_MATCH_COUNT: i64 = 10;
 
-fn build_opensearch() {
-    let url = Url::parse("https://khabide.alunos.dcc.fc.up.pt:9200").unwrap();
+fn build_opensearch(url: &str, database_creds_user: String, database_creds_pass: String) {
+    let url = Url::parse(url).unwrap();
     let conn_pool = SingleNodeConnectionPool::new(url);
     let transport = TransportBuilder::new(conn_pool)
         .cert_validation(CertificateValidation::None)
         .disable_proxy()
         .auth(
             Credentials::Basic(
-                DATABASE_CREDS_USER.to_string(),
-                DATABASE_CREDS_PASSWORD.to_string()
+                database_creds_user,
+                database_creds_pass
             )
         )
         .build().unwrap();
@@ -50,8 +44,8 @@ fn build_opensearch() {
     OPEN_SEARCH_CLIENT.set(client).unwrap();
 }
 
-fn build_riot_api() {
-    let api_config = RiotApiConfig::with_key(API_KEY_BDCC).preconfig_throughput();
+fn build_riot_api(api_key_bdcc: String) {
+    let api_config = RiotApiConfig::with_key(api_key_bdcc).preconfig_throughput();
 
     let riot_api = RiotApi::new(api_config);
 
@@ -75,14 +69,21 @@ struct ProgramArgs {
 async fn main() {
     let tm = TaskManager::new(Duration::from_secs(60));
     let args = ProgramArgs::parse();
+    dotenv::dotenv().ok();
+
+    let host = std::env::var("HOST").expect("Host not found");
+    let api_key_bdcc = std::env::var("API_KEY_BDCC").expect("API KEY BDCC not found");
+    let database_creds_user = std::env::var("DATABASE_CREDS_USER").expect("DATABASE_CREDS_USER not found");
+    let database_creds_pass = std::env::var("DATABASE_CREDS_PASSWORD").expect("DATABASE_CREDS_PASSWORD not found");
+
     if args.no_console {
         tracing_subscriber::fmt().init();
     } else {
         console_subscriber::init();
     }
 
-    build_opensearch();
-    build_riot_api();
+    build_opensearch(host.as_str(), database_creds_user, database_creds_pass);
+    build_riot_api(api_key_bdcc);
 
     let (queue_manager, (feed_sender, _),(_, process_recv),(return_sender, _)) = create_queues();
 

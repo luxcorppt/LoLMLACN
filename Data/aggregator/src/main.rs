@@ -15,7 +15,13 @@ const QUERY_BATCH_SIZE: i64 = 500;
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     let mut buckets_map: BTreeMap<String, u64> = BTreeMap::new();
-    let client = build_opensearch();
+    dotenv::dotenv().ok();
+
+    let host = std::env::var("HOST").expect("Host not found");
+    let database_creds_user = std::env::var("DATABASE_CREDS_USER").expect("DATABASE_CREDS_USER not found");
+    let database_creds_pass = std::env::var("DATABASE_CREDS_PASSWORD").expect("DATABASE_CREDS_PASSWORD not found");
+
+    let client = build_opensearch(host.as_str(), database_creds_user, database_creds_pass);
     let mut response = get_response_next(&client, None).await?;
 
     loop {
@@ -88,16 +94,16 @@ async fn get_response_next(client: &OpenSearch, next: Option<&Value>) -> Result<
     response.send().await.map_err(Into::into)
 }
 
-fn build_opensearch() -> OpenSearch {
-    let url = Url::parse("https://192.168.0.239:9200").unwrap();
+fn build_opensearch(url: &str, database_creds_user: String, database_creds_pass: String) -> OpenSearch {
+    let url = Url::parse(url).unwrap();
     let conn_pool = SingleNodeConnectionPool::new(url);
     let transport = TransportBuilder::new(conn_pool)
         .cert_validation(CertificateValidation::None)
         .disable_proxy()
         .auth(
             Credentials::Basic(
-                String::from("ingestor"),
-                String::from("!@#qweASDzxc456RTY")
+                database_creds_user,
+                database_creds_pass
             )
         )
         .build().unwrap();
