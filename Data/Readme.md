@@ -12,6 +12,7 @@ Used for making the graphs for NS from the data we collected previously.
 
 ## [Ingest](ingestor)
 First version, takes infinite data from the RIOT API and stores it into the OpenSearch database.
+
 Here we found a bug that generates an infinite loop in the Rust compiler.
 
 -------------------
