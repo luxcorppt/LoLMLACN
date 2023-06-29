@@ -2,7 +2,7 @@
 
 -------------------
 
-## Dynamic Mechanisms forming Networks of MOBA Matches Understanding Overlaps, Topology, Resilienceand Diffusion in a Gaming Community
+## Dynamic Mechanisms forming Networks of MOBA Matches Understanding Overlaps, Topology, Resilience and Diffusion in a Gaming Community
 
 - [all_ranks_graph](all_ranks_graph): raw data used.
 - [consensation_algorithm_explanation](consensation_algorithm_explanation): more detailed explanation of algorithm 1 presented in the report.
