@@ -2,19 +2,19 @@
 
 -------------------
 ## [Aggregator](aggregator)
-Explain 
+Helper program for us not to change the database configurations.
 
 -------------------
-## [Graph](grapher) 
-Explain
+## [Graph](grapher)
+Used for making the graphs for NS from the data we collected previously. 
 
 -------------------
 
 ## [Ingest](ingestor)
-Explain
+First version, takes infinite data from the RIOT API and stores it into the OpenSearch database.
 
 -------------------
 ## [IngestV2](ingestorv2)
-Explain
+Second version, takes data from both the RIOT API and the database, queries the data and the api and stores the results into the OpenSearch database.
 
 -------------------
