@@ -23,7 +23,8 @@ From the data obtained, there were two distinct preprocessing steps:
 - creation of a tabular structure that will be something from EAD and Machine Learning algorithms.
 
 We use "state-of-the-art" software for the analysis, and all the code, in theory, was built so that scaling the amount of data does not raise too many problems.
-In addition to the traditional data analysis and machine learning packages, we use the RAPIDS suite for the GPU, especially Cugraph, Cufilter, and Cudf packages for large-scale network analysis (Networkit, Graph-tool) and large-scale data visualization software such as Holoviews, Datashader, and Bokeh, as well as other associated packages.
+In addition to the traditional data analysis and machine learning packages, we use the RAPIDS suite for implementations of algorithms and datastructures that use the GPU, especially Cugraph, Cufilter, and Cudf. 
+We also use packages for large-scale network analysis (Networkit, Graph-tool) and large-scale data visualization software such as Holoviews, Datashader, and Bokeh, as well as other associated packages.
 
 As for hardware, we use part of the college's data center infrastructure. The infrastructure was built by us under the supervision of the Department of Computer Science, Faculty of Sciences of the University of Porto.
 
@@ -38,7 +39,7 @@ To visualize the network, we use rasterization techniques with software such as 
 ## [Machine Learning](MachineLearning/Readme.md) - Section V
 
 Applying ML to tabular data and EDA to them has its results arranged in a dashboard created using Pyplot.
-The main objective of the ML algorithms was to try to understand how well I could distinguish the ranks of the players based on the data obtained.
+The main objective of the ML algorithms was to try to understand how well we could distinguish the ranks of the players based on the data obtained.
 Furthermore, we compared the type of time spent and the result of the metrics between the algorithms running on CPU versus GPU. We also discovered a bug in RAPIDS.
 
 -------------------
