@@ -1,8 +1,15 @@
-# Big Data Cloud Computing - Project
+# Understanding League of Legends through Machine Learning and Analysis of Complex Networks
 
 -------------------
 
-- [BDCC Report](report/bdcc_report.pdf)
+## Informations:
+- Course: Big Data Cloud Computing at FCUP
+- [Report](report/bdcc_report.pdf)
+### By:
+- André Silva - 201906559 - [andresilva@fc.up.pt](mailto:andresilva@fc.up.pt) / [asilva@luxcorp.pt](mailto:asilva@luxcorp.pt)
+- João Afecto - 201904774 - [joao.afecto@fc.up.pt](mailto:joao.afecto@fc.up.pt) / [afecto@luxcorp.pt](mailto:afecto@luxcorp.pt)
+- João Antunes - 202203846 - [joao.antunes@fc.up.pt](mailto:joao.antunes@fc.up.pt)
+- Pedro Vieira - 201905272 - [pedrocvieira@fc.up.pt](mailto:pedrocvieira@fc.up.pt) / [pvieira@luxcorp.pt](mailto:pvieira@luxcorp.pt)
 
 -------------------
 
@@ -35,9 +42,3 @@ The main objective of the ML algorithms was to try to understand how well I coul
 Furthermore, we compared the type of time spent and the result of the metrics between the algorithms running on CPU versus GPU. We also discovered a bug in RAPIDS.
 
 -------------------
-
-## By:
-- André Silva - 201906559 - [andresilva@fc.up.pt](mailto:andresilva@fc.up.pt) / [asilva@luxcorp.pt](mailto:asilva@luxcorp.pt)
-- João Afecto - 201904774 - [joao.afecto@fc.up.pt](mailto:joao.afecto@fc.up.pt) / [afecto@luxcorp.pt](mailto:afecto@luxcorp.pt)
-- João Antunes - 202203846 - [joao.antunes@fc.up.pt](mailto:joao.antunes@fc.up.pt)
-- Pedro Vieira - 201905272 - [pedrocvieira@fc.up.pt](mailto:pedrocvieira@fc.up.pt) / [pvieira@luxcorp.pt](mailto:pvieira@luxcorp.pt)
