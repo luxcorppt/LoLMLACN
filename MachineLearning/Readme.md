@@ -8,6 +8,6 @@ Dynamic dashboard built with pyplot and dynamic queries for opensearch, provides
 
 - [JSONS](JSONS): jsons with model performance on each platform.
 - [EDA Images](imagesEDA): images generated with seaborn for player aggregation EDA.
-- [Scripts](../): scripts to generate DashBoard Aggregate players and benchmark ML models.
+- [Scripts](../MachineLearning): scripts to generate DashBoard Aggregate players and benchmark ML models.
 
 -------------------
